@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "extrakt"
+version = "0.0.1"
+authors = [
+  { name="ghn", email="ghn@example.com" },
+]
+description = "Extract meta data from a GPX file and generate the image map of the trace"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "gpxpy",
+  "jinja2",
+  "Pillow",
+  "pyyaml",
+  "selenium",
+  "webdriver-manager",
+]
+
+[project.urls]
+Homepage = "https://github.com/ghn/extrakt"
+Issues = "https://github.com/ghn/extrakt/issues"
