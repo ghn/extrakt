@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kameleo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      body { margin: 0 }
+      #map {
+        height: {{ height }}px;
+        width: {{ width }}px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      var map = L.map('map', {
+        zoomControl: false,
+        attributionControl: false,
+      });
+
+      // Add a tile layer (OpenStreetMap)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+      // Add trace
+      var coordinates = {{ coordinates }};
+      var polyline = L.polyline(coordinates, { weight: 6, color: 'darkred' }).addTo(map);
+
+      // zoom the map to the polyline
+      map.fitBounds(polyline.getBounds());
+    </script>
+  </body>
+</html>
