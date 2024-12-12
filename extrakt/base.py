@@ -19,11 +19,6 @@ def extract_all(file_path, output_dir):
     return {"data_file": data_file, "map_file": map_file}
 
 
-def open_activity(file_path):
-    validate_input_file(file_path)
-    gpx_file = open(file_path, "r")
-    return gpxpy.parse(gpx_file)
-
 
 def create_webdriver():
     """
@@ -42,10 +37,3 @@ def create_webdriver():
     return driver
 
 
-def validate_input_file(file_path):
-    VALID_EXTENSIONS = ("gpx", "gpx.gz")
-
-    if file_path.endswith(VALID_EXTENSIONS):
-        return True
-    else:
-        raise ValueError(f"The format of '{file_path}' is not accepted")

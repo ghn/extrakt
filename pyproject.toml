@@ -17,6 +17,7 @@ dependencies = [
   "Pillow",
   "pyyaml",
   "selenium",
+  "tcx2gpx",
   "webdriver-manager",
 ]
 
